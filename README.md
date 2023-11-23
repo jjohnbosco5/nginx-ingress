@@ -21,7 +21,7 @@ In the case of NGINX, the Ingress controller is deployed in a pod along with the
 ## 1. Clone Kubernetes Nginx Ingress Manifests into server where you have kubectl
 
 ```
-$ git clone https://github.com/jjohnbosco5/nginx-practice
+$ git clone https://github.com/jjohnbosco5/nginx-ingress
 
 $ cd nginx-practice/deployments
 ```
@@ -193,15 +193,5 @@ spec:
  $ kubectl delete clusterrolebinding nginx-ingress
  ```
 
-## Ingress with Https Using Self Signed Certificates:
-
-### Generate self signed certificates
-```
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -out mithun-ingress-tls.crt -keyout mithun-ingress-tls.key -subj "/CN=javawebapp.mithuntechdevops.co.in/O=mithun-ingress-tls"
-
-# Create secret for with your certificate .key & .crt file
-
-$ kubectl create secret tls mithun-ingress-tls --namespace default --key mithun-ingress-tls.key --cert mithun-ingress-tls.crt
-```
-### Mention tls/ssl(certificate) details in ingress
+#
 ```
